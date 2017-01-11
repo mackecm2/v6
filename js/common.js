@@ -479,3 +479,11 @@ function removeVariableFromURL(url_string, variable_name) {
     regex = null;
     return URL;
 }
+
+/**
+ * Display Clothing Sizes in pop-up window
+ * By - Mike MacKechnie
+ */
+function sizesPopup() {
+    window.open("https://www.wymeruk.co.uk/sizes.html", "_blank", "toolbar=no,scrollbars=no,resizable=yes,top=500,left=500,width=400,height=150");
+}

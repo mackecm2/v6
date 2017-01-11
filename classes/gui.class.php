@@ -322,8 +322,8 @@ class GUI {
 					$this->displaySideBasket();
 				}
 			}
-			$this->_displayNavigation();
 			$this->_displaySearchBox();
+                        $this->_displayNavigation();
 			$this->_displaySaleItems();
 			$this->_displayMailingList();
 			$this->_displayDocuments();
@@ -1079,7 +1079,7 @@ class GUI {
 
 				$GLOBALS['language']->translateProduct($product);
 				$product['url'] = $GLOBALS['seo']->buildURL('prod', $product['product_id']);
-
+                                $product['image_url'] = $this->getProductImage($product['product_id']);
 				$product['ctrl_sale'] = (!$GLOBALS['tax']->salePrice($product['price'], $product['sale_price']) || !$GLOBALS['config']->get('config', 'catalogue_sale_mode')) ? false : true;
 
 				$GLOBALS['catalogue']->getProductPrice($product);
@@ -1140,7 +1140,7 @@ class GUI {
 			$GLOBALS['language']->translateProduct($product);
 
 			$product['image'] = $image;
-
+                        $product['image_url'] = $this->getProductImage($product['product_id']);
 			$product['ctrl_sale'] = (!$GLOBALS['tax']->salePrice($product['price'], $product['sale_price']) || !$GLOBALS['config']->get('config', 'catalogue_sale_mode')) ? false : true;
 
 			$GLOBALS['catalogue']->getProductPrice($product);
@@ -1262,7 +1262,8 @@ class GUI {
 				$GLOBALS['language']->translateProduct($product);
 				$product['name'] = validHTML($product['name']);
 				$product['url']  = $GLOBALS['seo']->buildURL('prod', $product['product_id']);
-				$product['saving_unformatted']  = $product['saving'];
+				$product['image_url'] = $this->getProductImage($product['product_id']);
+                                $product['saving_unformatted']  = $product['saving'];
 				$product['saving']  = $GLOBALS['tax']->priceFormat($product['saving']);
 
 				$GLOBALS['catalogue']->getProductPrice($product);

@@ -232,7 +232,7 @@
                <label for="tax_type">{$LANG.catalogue.tax_class}</label>
                <span>
                   {if isset($TAXES)}
-                  <select name="tax_type" id="tax_type" class="textbox">
+                  <select name="tax_type" id="tax_type" class="textbox required">
                      <option value="">{$LANG.common.please_select} &hellip;</option>
                      {foreach from=$TAXES item=tax}<option value="{$tax.id}"{$tax.selected}>{$tax.tax_name}</option>{/foreach}
                   </select>
